@@ -1,0 +1,98 @@
+<?php
+/**
+ * @package    ZealousWeb
+ * @author     ZealousWeb
+ */
+?>
+<?php
+/**
+ * @function Get All Categories 
+ */
+function get_categories($categories) {
+    $array= '<ul class="collapsibleList">';
+    foreach($categories as $category) {
+        $cat = Mage::getModel('catalog/category')->load($category->getId());
+        $count = $cat->getProductCount();
+        $array .= '<li>'.
+        '<input type="checkbox" class="check-cat" value="'.$cat->getId().'" name="cat_checkbox[]"> ' .
+                  $category->getName()."(".$count.")\n";
+        if($category->hasChildren()) {
+            $children = Mage::getModel('catalog/category')->getCategories($category->getId());
+            $array .= get_categories($children);
+        }
+        $array .= '</li>';
+    }
+    return  $array . '</ul>';
+} ?>
+<button class="scalable back back-custom" type="button" onclick="setLocation('<?php echo $this->getUrl('adminhtml/catalog_product/index'); ?>')">
+    <span>Back</span>
+</button>
+<div id="category_tab_content">
+    <div id="category_info_tabs_group_4_content" style="">
+        <div class="entry-edit">
+            <div class="entry-edit-head">
+                <h4 class="icon-head head-edit-form fieldset-legend">Select Categories</h4>
+                <div class="form-buttons"></div>
+            </div>
+            <div id="group_4fieldset_group_4" class="fieldset fieldset-wide">
+                <div class="hor-scroll">
+                    <?php
+                        $form_action = '';
+                        if($this->getRequest()->getParam('act') == 'remove'):
+                            $form_action = $this->getUrl('adminhtml/catalog_product/massRemovecategory');
+                        else:
+                            $form_action = $this->getUrl('adminhtml/catalog_product/massAssigncategory');
+                        endif;
+                    ?>
+                    <form id="category_edit_form" name="category_edit_form" method="get" action="<?php echo $form_action;?>">
+                        <!-- Category Tree View Start -->
+                        <input type="hidden" name="product_ids" value="<?php echo implode(",",$this->getRequest()->getParam('product')); ?>" />
+                        <div class="block block-list block-categories">
+                            <a onclick="return selectall()" href="javascript:void(0)">Select All</a>
+                            <span class="separator">|</span>
+                            <a onclick="return unselectall()" href="javascript:void(0)">Unselect All</a>
+                            <div class="block-content left-categories-container">
+                                <ul class="treeView"> 
+                                    <?php $categoryColl = Mage::getModel('catalog/category')
+                                        ->getCollection()
+                                        ->addAttributeToSelect('*')
+                                        ->addAttributeToSelect('id')
+                                        ->addAttributeToSort('position')//sort by position
+                                        ->addLevelFilter(1)
+                                        ->addIsActiveFilter();  ?>
+                                    <?php foreach($categoryColl as $cat): ?>
+                                        <li>
+                                            <input class="check-cat" type="checkbox" name="cat_checkbox[]" value="<?php echo $cat->getId();?>"> 
+                                            <?php echo $cat->getName(); ?>(<?php echo $cat->getProductCount()?>)
+                                            <?php $categories = $cat->getCategories($cat->getId()); // Load All Category ?>
+                                            <?php echo get_categories($categories); // Get All Categories ?> 
+                                        </li>
+                                    <?php endforeach;?>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Category Tree View End -->
+                        <button id="" class="scalable save" type="button" title="Save Categories" onclick="editForm.submit()">
+                            <span>Save Categories</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('category_edit_form');
+    function selectall(){
+        var all = document.getElementsByClassName("check-cat");
+        for(var i = 0; i < all.length; i++){ 
+            all[i].checked = true;
+        }
+    }
+    function unselectall(){
+        var all = document.getElementsByClassName("check-cat");
+        for(var i = 0; i < all.length; i++){ 
+            all[i].checked = false;
+        }
+    }
+</script>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ZealousWeb_BulkCategoryAssign>
+            <version>1.0.0</version>
+        </ZealousWeb_BulkCategoryAssign>
+    </modules>
+    <global>
+        <!-- Model Observer -->
+        <models>
+            <zealousweb_bulkcategoryassign>
+                <class>ZealousWeb_BulkCategoryAssign_Model</class>
+            </zealousweb_bulkcategoryassign>
+		</models>
+    </global>
+    <!-- Adminhtml -->
+    <adminhtml> 
+        <!-- adminhtml_block_html_before observers -->        
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <zealousweb_bulkcategoryassign>
+                        <type>singleton</type>
+                        <class>zealousweb_bulkcategoryassign/observer</class>
+                        <method>addMassactionToProductGrid</method>
+                    </zealousweb_bulkcategoryassign>
+                </observers>
+            </adminhtml_block_html_before>
+		</events>
+        <!-- Layout Updates --> 
+        <layout>
+            <updates>
+                <zealousweb_bulkcategoryassign>
+                    <file>bulkcategoryassign.xml</file>
+                </zealousweb_bulkcategoryassign>
+            </updates>
+        </layout>
+        <!-- System Configuration -->  
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <generaltab>
+                                            <title>Bulk Product Category Modifier</title> 
+                                        </generaltab>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>      
+    </adminhtml>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ZealousWeb_BulkCategoryAssign after="Mage_Adminhtml">ZealousWeb_BulkCategoryAssign_Adminhtml</ZealousWeb_BulkCategoryAssign>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>   
+</config>

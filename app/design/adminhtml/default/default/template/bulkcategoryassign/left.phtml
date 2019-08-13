@@ -1,0 +1,21 @@
+<?php
+/**
+ * @package    Zealousweb
+ * @see        Zealousweb_BulkCategoryAssign
+ */
+?>
+<?php
+$text = '';
+if($this->getRequest()->getParam('act') == 'remove'): $text = 'Remove'; else: $text = 'Assign'; endif; ?>
+<h3><?php echo $text; ?> Products Categories</h3>
+<ul id="product_info_tabs" class="tabs">
+    <li>
+        <a id="product_info_tabs_group_7" class="tab-item-link active" title="General" href="#">
+            <span>
+                <span class="changed" title="The information in this tab has been changed."></span>
+                <span class="error" title="This tab contains invalid data. Please solve the problem before saving."></span>
+                Categories
+            </span>
+        </a>
+    </li>
+</ul>

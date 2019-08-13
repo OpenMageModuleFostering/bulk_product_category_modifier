@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Bulk_Product_Category_Modifier</name>
+    <version>1.0.0.3</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL-3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Modify multiple product categories at a time</summary>
+    <description>This extension allows us to remove or assign multiple categories to multiple products from the Product Grid itself. One do not need to get inside the Product page to assign categories.</description>
+    <notes>Second Stable Release</notes>
+    <authors><author><name>ZealousWeb Technologies Pvt Ltd.</name><user>ZealousWeb</user><email>magento@zealousweb.com</email></author></authors>
+    <date>2014-12-30</date>
+    <time>09:06:27</time>
+    <contents><target name="magecommunity"><dir name="ZealousWeb"><dir name="BulkCategoryAssign"><dir name="Model"><file name="Observer.php" hash="5ee37fa872e04e863bbc5132fdee3603"/><dir name="System"><dir name="Config"><dir name="Source"><dir name="Dropdown"><file name="Values.php" hash="413d4adaf667467b67a3629ba0300e28"/></dir><dir name="Multiple"><file name="Values.php" hash="460cee48b7611a17c8fa8a17fd303d34"/></dir></dir></dir></dir></dir><dir name="controllers"><dir name="Adminhtml"><file name="AssigncatController.php" hash="ffb266bfeca66d0b1c936568077bc40a"/><dir name="Catalog"><file name="ProductController.php" hash="a6737d644656bc38aa9bde9683be2d18"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="dcdeb7fd3ae70e95c30db110d5ab9b7c"/><file name="system.xml" hash="1e939142cc09142fce6776e63ccabcb9"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ZealousWeb_BulkCategoryAssign.xml" hash="b11330129cd6b97eafa105cf41bdd4b5"/></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="bulkcategoryassign.xml" hash="8062c2256b35ef491b9c83f4d83d1529"/></dir><dir name="template"><dir name="bulkcategoryassign"><file name="content.phtml" hash="1a814cdf09fc51fc73b5da8704973968"/><file name="left.phtml" hash="6816c129f43e1c7078100198aaa1f9cb"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><file name="bulkcategoryassign.css" hash="c3fb41f4566adbada13bbbf97a7c8ae4"/><dir name="images"><dir name="bulkcategoryassign"><file name="button-closed.png" hash="563b78324e0712c0902cb4f77cb9eb86"/><file name="button-open.png" hash="c710849a0d2b61ad1f0fc36c0e59d131"/><file name="button.png" hash="97f3055c5046c851eea2dad7e5227508"/><file name="list-item-contents.png" hash="00ae24d5bc76df9eedaea597859963e4"/><file name="list-item-last.png" hash="e2bfb790f46855c378e50f3c0a82ea01"/><file name="list-item-open.png" hash="732d1cc59f3a488c89c624eb434eac98"/><file name="list-item-root.png" hash="5529d21e7ec68e9cb750a4895ff0b480"/><file name="list-item.png" hash="e03ec1bf3d9e16bb3005ccf8d26eaa6c"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

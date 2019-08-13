@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_assigncat_index>
+        <reference name="head">
+            <action method="addCss"><name>bulkcategoryassign.css</name></action>
+        </reference>       
+        <reference name="left">
+            <block type="adminhtml/template" name="bulkcategoryassign_left" template="bulkcategoryassign/left.phtml" />
+        </reference>   
+        <reference name="content">
+            <block type="adminhtml/template" name="bulkcategoryassign_content" template="bulkcategoryassign/content.phtml" />                        
+        </reference>
+    </adminhtml_assigncat_index>
+</layout>
