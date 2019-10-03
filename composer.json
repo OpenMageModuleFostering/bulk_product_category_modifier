@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/Bulk_Product_Category_Modifier",
+    "name": "openmage-module-fostering\/bulk_product_category_modifier",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
