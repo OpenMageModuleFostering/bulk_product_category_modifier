@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Bulk_Product_Category_Modifier",
+    "name": "OpenMageModuleFostering\/Bulk_Product_Category_Modifier",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
     "description": "Modify multiple product categories at a time",
     "authors": [
-    {
-        "name": "ZealousWeb Technologies Pvt Ltd.",
-        "email": "magento@zealousweb.com"
-    }
-],
+        {
+            "name": "ZealousWeb Technologies Pvt Ltd.",
+            "email": "magento@zealousweb.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
